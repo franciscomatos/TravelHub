@@ -1,0 +1,33 @@
+.navbar-wrapper {
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  font-weight: lighter;
+}
+
+.brokers_table {
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-weight: lighter;
+}
+
+.table{
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  font-weight: lighter;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.broker-button {
+  border-radius: 5pt;
+  background-color: white;
+  border: 2px solid #008CBA;
+}
+
+.broker-button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+

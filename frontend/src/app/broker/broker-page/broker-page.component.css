@@ -1,0 +1,30 @@
+.navbar-wrapper {
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  font-weight: lighter;
+}
+
+.broker-background {
+  position: relative;
+  text-align: left;
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  color: white;
+}
+
+.broker-quote {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+  font-size: 50px;
+}
+
+.broker-login {
+  position: absolute;
+  top: 0px;
+  right: 150px;
+  width: 400px;
+}
+
+.login {
+  position: relative;
+  width: 50%;
+}

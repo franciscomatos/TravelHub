@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in activity bank broker car hotel tax; do 
+    sed "s/dbPassword=/dbPassword=$1/g" $i/src/main/resources/fenix-framework.properties.example > $i/src/main/resources/fenix-framework.properties
+
+done 

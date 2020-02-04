@@ -1,0 +1,32 @@
+<h2>Bulk {{bulkId}} Booked Rooms Information</h2>
+
+<table class="references">
+  <thead>
+  <tr>
+    <th>Reference</th>
+    <th>Hotel</th>
+    <th>Arrival</th>
+    <th>Departure</th>
+    <th>Room Type</th>
+    <th>Price</th>
+    <th>Cancellation </th>
+    <th>Cancellation Date</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reference of references">
+    <td>{{reference.id}}</td>
+    <td>{{reference.hotelName}}</td>
+    <td>{{reference.arrival}}</td>
+    <td>{{reference.departure}}</td>
+    <td>{{reference.bookRoom}}</td>
+    <td>{{reference.price}}</td>
+    <td>{{reference.cancellation}}</td>
+    <td>{{reference.cancellationDate}}</td>
+    <td><button (click)="cancelBooking(reference.id);">
+      Cancel
+    </button></td>
+  </tr>
+  </tbody>
+</table>

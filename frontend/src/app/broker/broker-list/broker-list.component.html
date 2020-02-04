@@ -1,0 +1,132 @@
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">TravelHub</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/brokers">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/topBrokers">Top Brokers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/allBrokers">All Brokers</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a routerLink="/brokers/{{brokers[0].code}}/main">
+        <img class="d-block w-100" src="../../../assets/images/plane.jpeg" alt="First slide" style="max-height:400px; width: auto; margin:0 auto;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{brokers[0].name}}</h5>
+          <span>Find places you didn't even know existed</span>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a routerLink="/brokers/{{brokers[1].code}}/main">
+        <img class="d-block w-100" src="../../../assets/images/family.jpg" alt="First slide" style="max-height:400px; margin:0 auto;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{brokers[1].name}}</h5>
+          <span>Safe and fun vacations for the entire family</span>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a routerLink="/brokers/{{brokers[2].code}}/main">
+        <img class="d-block w-100" src="../../../assets/images/wild.jpg" alt="First slide" style="max-height:400px; margin:0 auto;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{brokers[2].name}}</h5>
+          <span>For fans of the wild</span>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a routerLink="/brokers/{{brokers[3].code}}/main">
+        <img class="d-block w-100" src="../../../assets/images/luxury.jpg" alt="First slide" style="max-height:400px; margin:0 auto;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{brokers[3].name}}</h5>
+          <span>Fulfill your richest fantasy</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="full-list">
+  <table class="other-brokers">
+    <tbody>
+      <tr>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[4].code}}/main" class="broker-name">
+              <img [src]="images[0]" class="broker-logo">
+              <h5>{{brokers[4].name}}</h5>
+            </a>
+          </div>
+        </td>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[5].code}}/main" class="broker-name">
+              <img [src]="images[1]" class="broker-logo">
+              <h5>{{brokers[5].name}}</h5>
+            </a>
+          </div>
+        </td>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[6].code}}/main" class="broker-name">
+              <img [src]="images[2]" class="broker-logo">
+              <h5>{{brokers[6].name}}</h5>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[7].code}}/main" class="broker-name">
+              <img [src]="images[3]" class="broker-logo">
+              <h5>{{brokers[7].name}}</h5>
+            </a>
+          </div>
+        </td>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[8].code}}/main" class="broker-name">
+              <img [src]="images[4]" class="broker-logo">
+              <h5>{{brokers[8].name}}</h5>
+            </a>
+          </div>
+        </td>
+        <td class="cell-padding">
+          <div class="zoom">
+            <a routerLink="/brokers/{{brokers[9].code}}/main" class="broker-name">
+              <img [src]="images[5]" class="broker-logo">
+              <h5>{{brokers[9].name}}</h5>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

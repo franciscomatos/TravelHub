@@ -1,0 +1,75 @@
+.navbar-wrapper {
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  font-weight: lighter;
+}
+
+.full-list {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+
+.hotels {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  font-weight: lighter;
+}
+
+.hotel-logo {
+  max-height:220px;
+  width: auto;
+  margin:auto;
+  border-radius: 5pt;
+}
+
+.cell-padding {
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+}

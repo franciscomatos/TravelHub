@@ -1,0 +1,51 @@
+
+
+<h2>Broker {{brokerCode}} Bulks</h2>
+
+<div>
+  <label>Number:
+    <input #number type="number" step="1" min="0"/>
+  </label>
+  <label>Begin:
+    <input #begin type="date" />
+  </label>
+  <label>End:
+    <input #end type="date" />
+  </label>
+  <button (click)="addBulk(number.value, begin.value, end.value);">
+    add
+  </button>
+</div>
+
+<table class="bulks">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Arrival</th>
+      <th>Departure</th>
+      <th>Actual Number</th>
+      <th>Cancelled</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bulk of bulks">
+      <td>{{bulk.number}}</td>
+      <td>{{bulk.arrival}}</td>
+      <td>{{bulk.departure}}</td>
+      <td>{{bulk.actualNumber}}</td>
+      <td>{{bulk.cancelled}}</td>
+      <td>
+        <button (click)="processBulk(bulk.id);">
+          Process
+        </button>
+      </td>
+      <td>
+        <a routerLink='/brokers/{{brokerCode}}/bulks/{{bulk.id}}/references'>References</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

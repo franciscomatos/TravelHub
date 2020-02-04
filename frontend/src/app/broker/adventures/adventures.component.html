@@ -1,0 +1,95 @@
+
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" routerLink="/brokers/{{brokerCode}}/clients/{{clientNif}}/adventures">Your Adventures</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/brokers/{{brokerCode}}/clients/{{clientNif}}/adventures">Add New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/clients/{{clientNif}}/adventures/list">See yours</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/main">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <mat-card>
+    <form *ngIf="adventureForm" [formGroup]="adventureForm">
+        <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                      Pick a start date:
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <mat-form-field>
+                            <input matInput #dateBeginVal [matDatepicker]="pickerBegin" placeholder="Choose a date" formControlName="dateBegin">
+                            <mat-datepicker-toggle matSuffix [for]="pickerBegin"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerBegin></mat-datepicker>
+                        </mat-form-field>
+                    </mat-list-item>
+                  </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        Are you going to need a Vehicle?
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                      <mat-form-field>
+                          <mat-label>Vehicle</mat-label>
+                          <mat-select #vehicle (change)="parseRentVehicle($event.target.value);" formControlName="vehicle">
+                            <mat-option  *ngFor="let option of vehicleOptions" [value]="option">{{option}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                    </mat-list-item>
+                </mat-list>
+              </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-error *ngIf="adventureForm.hasError('datesNotInOrder')">
+                    End date must be equal or after Start date
+                </mat-error>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                      Pick an ending date:
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <mat-form-field>
+                            <input matInput #dateEndVal [matDatepicker]="pickerEnd" placeholder="Choose a date" formControlName="dateEnd" [errorStateMatcher]="DatesInOrderStateMatcher">
+                            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerEnd></mat-datepicker>
+                        </mat-form-field>
+                    </mat-list-item>
+                  </mat-list>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        Are you going to need a Room?
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                      <mat-form-field>
+                          <mat-label>Room type</mat-label>
+                          <mat-select #room  (change)="parseBookRoom($event.target.value);" formControlName="room">
+                            <mat-option *ngFor="let option of roomOptions" [disabled]="checkDates(option)"[value]="option">{{option}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                    </mat-list-item>
+                </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-flat-button [disabled]="adventureForm.invalid" (click)="addAdventure(dateBeginVal.value, dateEndVal.value, 0.5, room.value, vehicle.value);" >Done</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+    </form>
+  </mat-card>
+

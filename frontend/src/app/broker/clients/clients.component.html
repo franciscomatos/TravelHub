@@ -1,0 +1,41 @@
+<h2>Broker {{brokerCode}} Clients</h2>
+
+<div>
+  <label>Nif:
+    <input #clientNif />
+  </label>
+  <label>Iban:
+    <input #clientIban />
+  </label>
+  <label>Age:
+    <input #clientAge />
+  </label>
+  <label>Driving License:
+    <input #clientDrivingLicense />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addClient(clientNif.value, clientIban.value, clientAge.value, clientDrivingLicense.value);">
+    add
+  </button>
+</div>
+
+<table class="clients">
+  <thead>
+    <tr>
+      <th>Nif</th>
+      <th>Iban</th>
+      <th>Age</th>
+      <th>Driving License</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{client.nif}}</td>
+      <td>{{client.iban}}</td>
+      <td>{{client.age}}</td>
+      <td>{{client.drivingLicense}}</td>
+      <a routerLink='/brokers/{{brokerCode}}/clients/{{client.nif}}/adventures' >Link</a>
+    </tr>
+  </tbody>
+</table>

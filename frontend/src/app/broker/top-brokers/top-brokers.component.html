@@ -1,0 +1,62 @@
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">TravelHub</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/brokers/topBrokers">Top Brokers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/allBrokers">All Brokers</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="full-list">
+  <table class="other-brokers">
+    <tbody>
+    <tr>
+      <td class="cell-padding">
+        <div class="zoom">
+          <a routerLink="/brokers/{{brokers[0].code}}/main" class="broker-name">
+            <img src="../../../assets/images/plane.jpeg" class="broker-logo">
+            <h5>{{brokers[0].name}}</h5>
+          </a>
+        </div>
+      </td>
+      <td class="cell-padding">
+        <div class="zoom">
+          <a routerLink="/brokers/{{brokers[1].code}}/main" class="broker-name">
+            <img src="../../../assets/images/family.jpg" class="broker-logo">
+            <h5>{{brokers[1].name}}</h5>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-padding">
+        <div class="zoom">
+          <a routerLink="/brokers/{{brokers[2].code}}/main" class="broker-name">
+            <img src="../../../assets/images/wild.jpg" class="broker-logo">
+            <h5>{{brokers[2].name}}</h5>
+          </a>
+        </div>
+      </td>
+      <td class="cell-padding">
+        <div class="zoom">
+          <a routerLink="/brokers/{{brokers[3].code}}/main" class="broker-name">
+            <img src="../../../assets/images/luxury.jpg" class="broker-logo">
+            <h5>{{brokers[3].name}}</h5>
+          </a>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

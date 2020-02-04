@@ -1,0 +1,26 @@
+.adventures_table {
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-weight: lighter;
+}
+
+.sortHeader{
+  font-family: "Source Sans Pro",Helvetica ,Arial;
+  font-weight: lighter;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.process-button {
+  border-radius: 5pt;
+  background-color: white;
+  border: 2px solid #008CBA;
+}
+
+.process-button:hover {
+  background-color: #008CBA;
+  color: white;
+}

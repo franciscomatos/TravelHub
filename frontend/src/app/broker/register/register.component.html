@@ -1,0 +1,114 @@
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <a class="navbar-brand" routerLink="/brokers/{{brokerCode}}/main">{{brokerName}}</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/main">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/hotels">Hotels</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/activities">Activities</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/brokers/{{brokerCode}}/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="registration-container">
+  <form *ngIf="formGroup" [formGroup]="formGroup">
+    <mat-horizontal-stepper #linearHorizontalStepper="matHorizontalStepper" formArrayName="formArray" [linear]="true">
+      <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+        <ng-template matStepLabel>Authentication details</ng-template>
+        <mat-form-field>
+          <mat-label>Email address</mat-label>
+          <input matInput #clientEmail formControlName="emailFormControl" required>
+          <mat-error *ngIf="formGroup.invalid">
+              Incorrect email
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput #clientPasswd type="password" formControlName="passwordFormControl" required>
+          <mat-error *ngIf="formGroup.invalid">
+              Password must be between 6 and 24 characters
+          </mat-error>
+          <!-- <mat-error>This field is required</mat-error> -->
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPasswordFormControl" required [errorStateMatcher]="passwordsMatcher">
+            <!-- <mat-error *ngIf="formGroup.get('confirmPasswordFormControl') && formGroup.get('confirmPasswordFormControl').hasError('passwordsNotEqual')"> -->
+            <mat-error *ngIf="formGroup.invalid">
+              Passwords are different. They should be equal!
+            </mat-error>
+          <!-- </mat-form-field> -->
+            <!-- <mat-error>This field is required</mat-error> -->
+          </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+        <ng-template matStepLabel>
+          <div>Required information</div>
+        </ng-template>
+        <mat-form-field>
+            <mat-label>Nif</mat-label>
+            <input matInput #clientNif type="number" formControlName="nifFormCtrl" required>
+            <mat-error *ngIf="formGroup.invalid">
+              Required field!
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Iban</mat-label>
+            <input matInput #clientIban type="text" formControlName="ibanFormCtrl" required>
+            <mat-error *ngIf="formGroup.invalid">
+              Required field!
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput #clientAge type="number" formControlName="ageFormCtrl" required>
+            <mat-error *ngIf="formGroup.invalid">
+              Required field!
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Driver's License</mat-label>
+            <input matInput #clientDL type="text" formControlName="drivingLicenseFormCtrl" required>
+            <mat-error *ngIf="formGroup.invalid">
+              Required field!
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Confirm your information</ng-template>
+        Everything seems correct.
+        <div>
+          <button (click)="addClient(clientNif.value, clientIban.value, clientAge.value, clientDL.value, clientEmail.value, clientPasswd.value);" mat-button>Done</button>
+          <button type="button" mat-button (click)="linearHorizontalStepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>
